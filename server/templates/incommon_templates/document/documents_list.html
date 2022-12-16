@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<ol>
+    {% for document in documents %}
+        <li>{{ document.file }}</li>
+    {% endfor %}
+</ol>
+{% endblock main %}

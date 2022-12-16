@@ -152,7 +152,6 @@ REST_FRAMEWORK = {
     # ],'''
 }
 """
-# JWT settings
 
 # CorsHeaders Settings
 CORS_ALLOW_ALL_ORIGINS = True 
