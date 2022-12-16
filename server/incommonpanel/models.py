@@ -23,7 +23,7 @@ class Document(models.Model):
     file = models.FileField(upload_to='uploads/%Y/%m/%d/')
     private_access = models.BooleanField(default=True)
     created_at = models.DateField(auto_now_add=True)
-    catalog = models.ForeignKey(Catalog, default=None, blank=True, on_delete=models.CASCADE)
+    catalog = models.ForeignKey(Catalog, default=None, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

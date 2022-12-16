@@ -158,3 +158,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # WhiteNoise settings
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'

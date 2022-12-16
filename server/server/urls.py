@@ -21,5 +21,6 @@ urlpatterns = [
 
     # Includes
     path('', include('incommonpanel.urls')),
+    path('moder/', include('adminpanel.urls')),
     path('authsystem/', include('authsystem.urls')),
 ]

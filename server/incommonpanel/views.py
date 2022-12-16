@@ -33,6 +33,12 @@ class CatalogUpdateView(UpdateView):
     fields = ['title']
     context_object_name = 'catalog'
     template_name = 'incommon_templates/catalog/catalog_update.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        print(context['user'].is_staff)
+        return context
     
 
 ###         Document

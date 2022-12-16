@@ -41,6 +41,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     surname = models.CharField(max_length=255,)
     department = models.CharField(max_length=255, choices=DEPARTMENTS)
     email = models.EmailField(max_length=256, unique=True)
+    birthsday = models.DateField(blank=True, null=True)
     private_access = models.BooleanField(default=False) 
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -55,4 +56,4 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.email
 
     def get_absolute_url(self,):
-        return reverse_lazy('user', kwargs={'pk': self.pk})
+        return reverse_lazy('user_detail', kwargs={'pk': self.pk})
