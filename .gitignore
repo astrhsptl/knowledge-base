@@ -1,5 +1,5 @@
 env
 server/db.sqlite3
-server/authsystem/migrations/0001_initial.py
-server/incommonpanel/migrations/0001_initial.py
+server/authsystem/migrations/*
+server/incommonpanel/migrations/*
 server/media/*
