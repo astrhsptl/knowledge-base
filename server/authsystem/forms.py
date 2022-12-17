@@ -29,8 +29,7 @@ class UpdateUserForm(forms.ModelForm):
         model = User
         fields = [
 		'name', 'middlename', 'surname',
-		'department', 'birthsday', 'private_access',
-		'is_active', 'is_staff',]
+		'birthsday', ]
         widgets = {
             'birthsday': DateInput(),
         }

@@ -9,7 +9,6 @@ from .forms import (
 	UserRegisterForm, AuthenticationForm, 
 	UpdateUserForm)
 
-
 class UserDetailView(ListView):
 	model = User
 	template_name = 'user/user_detail.html'

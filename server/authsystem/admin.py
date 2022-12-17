@@ -5,7 +5,7 @@ from .models import User
 
 class UserAdmin(admin.ModelAdmin):
     fields = (
-        'id', 'username', 'name', 'surname', 'department', 
+        'id', 'name', 'surname', 'department', 
         'email', 'private_access', 'is_active', 'is_staff', 'is_superuser', 
     )
     list_editable = (
@@ -15,7 +15,7 @@ class UserAdmin(admin.ModelAdmin):
         'id', 'name', 'surname', 'department', 'email', 'private_access', 
     )
     search_fields = (
-        'id', 'username', 'name', 'surname', 'department', 
+        'id', 'name', 'surname', 'department', 
         'email', 'is_active', 'is_staff', 'is_superuser', 'private_access'
     )
     readonly_fields = (

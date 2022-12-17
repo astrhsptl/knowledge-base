@@ -10,8 +10,8 @@ from .views import (
     )
 
 urlpatterns = [
-    path('<int:pk>/', ModeratorUserDetailView.as_view(), name='moder_user_detail'),
-    path('<int:pk>/update/', ModeratorUserUpdateView.as_view(), name='moder_user_update'),
+    path('user/<int:pk>/', ModeratorUserDetailView.as_view(), name='moder_user_detail'),
+    path('user/<int:pk>/update/', ModeratorUserUpdateView.as_view(), name='moder_user_update'),
 
     path('document/creational/', DocumentCreationsView.as_view(), name='moder_document_creational'),
     path('catalog/creational/', CatalogCreationalView.as_view(), name='moder_document_creational'),

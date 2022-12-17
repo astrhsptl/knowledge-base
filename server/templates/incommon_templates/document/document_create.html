@@ -2,8 +2,13 @@
 {% load static %}
 
 {% block main %}
-    <form method="post"  enctype="multipart/form-data">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Save">
-    </form>
+    {% if user.is_staff %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Update" />
+        </form>
+    {% else %}
+        <h1>Fuck u</h1>
+    {% endif %}
 {% endblock main %}

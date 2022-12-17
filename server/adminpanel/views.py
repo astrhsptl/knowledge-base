@@ -4,13 +4,14 @@ from django.contrib.auth import login
 from django.shortcuts import  render, redirect
 from django.views.generic import UpdateView, DetailView, CreateView
 
-from server.settings import MEDIA_ROOT
 from authsystem.models import User
 from incommonpanel.models import Document, Catalog
 from .forms import (
 	UserRegisterForm, UpdateUserForm,
 	DocumentCreationalForm, CatalogCreationalForm)
-# Create your views here.
+
+from buisneslogic.send_email import mail_sending
+from buisneslogic.tasks import mail_sending_task
 
 class ModeratorUserDetailView(DetailView):
     model = User
@@ -40,14 +41,19 @@ class CatalogCreationalView(CreateView):
 	context_object_name = 'form'
 	template_name = 'incommon_templates/catalog/catalog_create.html'
 
+
 def user_register(request):
 	if request.method == "POST":
 		form = UserRegisterForm(request.POST)
 		if form.is_valid():
 			user = form.save()
-			login(request, user)
+			
+			# login(request, user)
 			# messages.success(request, "Registration successful." )
-			print("Registration successful.")
+			try:
+				mail_sending_task.delay(form.cleaned_data['email'], form.cleaned_data['password1'])
+			except:
+				print('invalid recipier')
 			return redirect("home")
 		# messages.error(request, "Unsuccessful registration. Invalid information.")
 		print('Unsuccessful registration.')

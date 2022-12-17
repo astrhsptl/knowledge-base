@@ -15,7 +15,13 @@ class UserRegisterForm(UserCreationForm):
 
 	class Meta:
 		model = User
-		fields = ("email", "password1", "password2")
+		fields = (
+			"name", "middlename", "surname",
+			"is_staff", "private_access", "birthsday",
+			"department","email", "password1", "password2")
+		widgets = {
+            'birthsday': DateInput(),
+        }
 
 	def save(self, commit=True):
 		user = super(UserRegisterForm, self).save(commit=False)
