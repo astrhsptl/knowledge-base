@@ -2,13 +2,15 @@
 {% load static %}
 
 {% block main %}
+<center>
     {% if user.is_staff %}
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Update" />
+            <input type="submit" value="Update" class="inp"/>
         </form>
     {% else %}
         <h1>Fuck u</h1>
     {% endif %}
+</center>
 {% endblock main %}

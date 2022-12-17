@@ -37,6 +37,10 @@ class DocumentCreationalForm(forms.ModelForm):
 	class Meta:
 		model = Document
 		fields = ['title', 'file', 'private_access', 'catalog']
+		widgets = {
+            'title': forms.TextInput(attrs={'class': 'inp'}),
+			'file': forms.FileInput(attrs={'class': 'inp'})
+        }
 
 	def clean(self):
 		cleaned_data = super().clean()
@@ -45,12 +49,10 @@ class DocumentCreationalForm(forms.ModelForm):
 			self.add_error('file', "Very big file.")
 
 class CatalogCreationalForm(forms.ModelForm):
-	title = forms.CharField(required=True, min_length=5, max_length=20)
-
-	class Meta:
-		model = Catalog
-		fields = ['title',]
-
+    title = forms.CharField(required=True, min_length=5, max_length=20,)# widget=forms.TextInput(attrs={'class': 'inp'}))
+    class Meta:
+        model = Catalog
+        fields = ('title',)
 
 
 class UpdateUserForm(forms.ModelForm):

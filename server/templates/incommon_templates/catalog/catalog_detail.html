@@ -2,16 +2,26 @@
 {% load static %}
 
 {% block main %}
-    {{ catalog.title }}
-    <ol>
-        {% for doc in documents %}
-            <a href="{{ doc.get_absolute_url }}"><li>{{ doc.title }}</li></a>
-                {% if user.is_staff %}
-                    <a href="{% url 'document_update' doc.pk %}"><button>Correct Document</button></a>
-                {% endif %}
-            {% endfor %}
-    </ol>
+    <center>
+    <h2 class=''>{{ catalog.title }}</h2>
+    <div class="row">
+      {% for doc in documents %}
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ doc.title }}</h5>
+              <p class="card-text">Its a beautiful scientific document</p>
+              <a href="{{ doc.get_absolute_url }}"><button class="inp">View document</button></a>
+              {% if user.is_staff %}
+                  <a href="{% url 'document_update' doc.pk %}"><button class="inp">Correct Document</button></a>
+              {% endif %}
+            </div>
+          </div>
+        </div>     
+      {% endfor %}
+    </div>
     {% if user.is_staff %}
-        <a href="{% url 'catalog_update' catalog.pk %}"><button>Correct</button></a>
+      <a href="{% url 'catalog_update' catalog.pk %}"><button class="inp">Correct catalog</button></a>
     {% endif %}
+  </center>
 {% endblock main %}

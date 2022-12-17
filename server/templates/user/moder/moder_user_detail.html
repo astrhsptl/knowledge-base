@@ -2,8 +2,17 @@
 {% load static %}
 
 {% block main %}
+<center>
+<div class="acc-field">
+    <div class="acc-text">
+    <div>{{ user.name }} {{ user.surname }}</div>
+    <div>{{ user.department }}</div>
+    <div>Staff: {{ user.is_staff }}</div>
+    <div>Access: {{ user.private_access }}</div>
     <div>{{ user.email }}</div>
-    <div>{{ user.name }}</div>
-    <div>{{ user.private_access }}</div>
-    <a href="{% url 'moder_user_update' user.pk %}"><button>Correct profile</button></a>
+    </div>
+    <img class='acc-image' src="{% static 'images/acc.png' %}" height="50%" width="50%" alt="" />
+</div>
+<div class="acc-field"><a href="{% url 'moder_user_update' user.pk %}"><button class="inp">Correct ur profile</button></a></div>
+</center>
 {% endblock main %}

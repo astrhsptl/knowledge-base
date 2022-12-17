@@ -5,13 +5,14 @@ from .views import (
     user_login,  user_logout,
 
     # User Account system    
-    UserDetailView, UserUpdateView,
+    UserDetailView, UserUpdateView, PasswordResetByUser,
     )
 
 urlpatterns = [
     #       User Account
     path('user/', UserDetailView.as_view(), name='user_detail'),
     path('user/update/', UserUpdateView.as_view(), name='user_update'),
+    path('user/password/reset', PasswordResetByUser.as_view(), name='change_password'),
 
     #       Authenticate system
     path('login/', user_login, name='login'),

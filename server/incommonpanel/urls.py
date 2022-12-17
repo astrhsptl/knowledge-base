@@ -7,7 +7,7 @@ from .views import (
     CatalogsListView, CatalogDetailView, CatalogUpdateView,
 
     ###  Documents
-    DocumentsListView, DocumentDetailView, DocumentUpdateView,
+    DocumentsListView, DocumentDetailView, DocumentUpdateView, 
 )
 
 urlpatterns = [
@@ -19,6 +19,8 @@ urlpatterns = [
     path('catalogs/<int:pk>/update/', CatalogUpdateView.as_view(), name='catalog_update'),
 
     ###    Documents urls
+    # path('documents/', listing, name='document_list'),
+    
     path('documents/', DocumentsListView.as_view(), name='document_list'),
     path('documents/<int:pk>/', DocumentDetailView.as_view(), name='document_detail'),
     path('documents/<int:pk>/update/', DocumentUpdateView.as_view(), name='document_update'),]

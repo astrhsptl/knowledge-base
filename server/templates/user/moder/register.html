@@ -2,16 +2,18 @@
 {% load static %}
 
 {% block main %} 
+<center>
 	{% if user.is_staff %}
-		<div class="container py-5">
-			<h1>Register</h1>
-			<form method="POST">
+	<div class="reg">
+		<h1>Register</h1>
+			<form method="post">
 				{% csrf_token %}
 				{{ register_form.as_p }}                    
-				<button class="btn btn-primary" type="submit">Register</button>
+				<button class="inp" type="submit">Register</button>
 			</form>
-		</div>
+	</div>
 	{% else %}
-		<h1>Fuck u</h1>
+		<h1>No way!</h1>
 	{% endif %}
+</center>
 {% endblock %}

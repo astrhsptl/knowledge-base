@@ -1,0 +1,14 @@
+.img-home {
+    position: absolute;
+    height: 60%;
+    width: 44%;
+    margin-left: 50%;
+    margin-top: -300px;
+}
+
+.text-home {
+    height: 30%;
+    width: 30%;
+    margin-left: 20%;
+    margin-top: 150px;
+}

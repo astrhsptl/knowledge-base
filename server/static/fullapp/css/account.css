@@ -1,0 +1,34 @@
+.acc-field {
+    display: flex;
+    top: 15%;
+    max-width: 65%;
+    margin: 0 auto;
+    margin-left: 32%;
+}
+
+.acc-image {
+    margin: 0 left;
+    position: flex;
+    padding-left: 20%;
+    padding-top: -12%;
+}
+
+.moder-panel {
+    margin-top: 10px;
+}
+
+.h-moder {
+    margin-top: 30px;
+}
+
+.reg {
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.user-list {
+    max-width: 50%;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-top: 10px;
+}

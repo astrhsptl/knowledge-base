@@ -2,8 +2,20 @@
 {% load static %}
 
 {% block main %}
+<center>
+<div class="acc-field">
+    <div class="acc-text">
+    <div>{{ user.name }} {{ user.surname }}</div>
+    <div>{{ user.department }}</div>
+    <div>{{ birthsday }}</div>
     <div>{{ user.email }}</div>
-    <div>{{ user.name }}</div>
-    <div>{{ user.private_access }}</div>
-    <a href="{% url 'user_update' %}"><button>Correct ur profile</button></a>
+    </div>
+    <img class='acc-image' src="{% static 'images/acc.png' %}" height="50%" width="50%" alt="" />
+</div>
+<span class="acc-field">
+    <a href="{% url 'user_update' %}"><button class="inp">Correct ur profile</button></a>
+    <a href="{% url 'logout' %}"><button class="inp">Logout</button></a>
+    <a href="{% url 'change_password' %}"><button class="inp">Change password</button></a>
+</span>
+</center>
 {% endblock main %}

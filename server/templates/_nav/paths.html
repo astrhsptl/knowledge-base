@@ -1,3 +1,15 @@
-<div class="button_panel">
-    
+<div class="btn-main">
+    <a href="{% url 'home' %}"><button class="inp">Home</button></a>
+    <a href="{% url 'catalog_list' %}"><button class="inp">Catalogs</button></a>
+    <a href="{% url 'document_list' %}"><button class="inp">Documents</button></a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'user_detail' %}"><button class="inp">Account</button></a>
+    {% else %}
+        <a href="{% url 'login' %}"><button class="inp">Login</button></a>
+        
+    {% endif %}
+
+    {% if user.is_staff %}
+        <a href="{% url 'moder_home' %}"><button class="inp">Moderator</button></a>
+    {% endif %}
 </div>

@@ -6,8 +6,20 @@ from django.contrib.auth import login, authenticate, logout
 
 from .models import User
 from .forms import (
-	UserRegisterForm, AuthenticationForm, 
-	UpdateUserForm)
+	AuthenticationForm, UpdateUserForm
+)
+
+from django.contrib.auth.views import PasswordChangeView
+
+class PasswordResetByUser(PasswordChangeView):
+	template_name = 'user/change_password.html'
+	success_url = '/'
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs) 
+		print(context)
+		return context
+
 
 class UserDetailView(ListView):
 	model = User
@@ -35,6 +47,8 @@ class UserUpdateView(UpdateView):
 
 ###			Authentication Functional
 def user_login(request):
+	if request.user.is_authenticated:
+		return redirect('user_detail')
 	if request.method == "POST":
 		form = AuthenticationForm(request, data=request.POST)
 		if form.is_valid():

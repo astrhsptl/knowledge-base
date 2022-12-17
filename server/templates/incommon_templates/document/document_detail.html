@@ -2,5 +2,57 @@
 {% load static %}
 
 {% block main %}
-    {{ document.title }}
+    <center><h1 class="">{{ document.title }}</h1></center>
+
+        <!-- Images -->
+    {% if file_expansion in image_expantions %}
+    <center>
+        {{ docx_text }}
+        <img src="{{ file_path }}" alt="" height="50%" width="50%">
+    </center>
+        <!-- Presentations -->
+    {% elif file_expansion in presentation_expantions %}
+        <h1>Presentation</h1>
+        <h4>Its a presentation)) Trust me please)</h4>
+        <!-- Text -->
+    {% elif file_expansion in text_expantions %}
+        {% autoescape off %}
+            <div class="dox-text">
+                {{ docx_text }}
+            </div>
+        {% endautoescape %}
+        <!-- PDFS -->
+    {% elif file_expansion == 'pdf' %}
+        <center>
+            <embed src="{{ file_path }}" type="application/pdf" height="50%" width="50%">
+        </center>
+
+        <!-- Tables --> 
+    {% elif file_expansion in table_expantions %}
+        <center>
+        {{ docx_text }}
+        <table style="border: 1px solid black; padding: 5px;">
+            {% for row in excel_data %}
+                <tr style="border: 1px solid black; padding: 5px;">
+                    {% for cell in row %}
+                        <td style="border: 1px solid black; padding: 5px;">{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        </center>
+    {% else %}
+        <center>
+        <h1>Another</h1>
+        </center>
+
+    {% endif %}
+{% if docx_text != 'что-то пошло не так' %}
+    <center>
+        <a href="{{ file_path }}" download><button class="inp">Download</button></a>
+    {% if user.is_staff %}
+        <a href="{% url 'document_update' document.pk %}"><button class="inp">Correct Document</button></a>
+    {% endif %}
+    </center>
+{% endif %}
 {% endblock main %}

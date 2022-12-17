@@ -36,10 +36,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         ('Маркетинговый', 'Маркетинговый'),
     )
 
-    name = models.CharField(max_length=255,)
-    middlename = models.CharField(max_length=255,)
-    surname = models.CharField(max_length=255,)
-    department = models.CharField(max_length=255, choices=DEPARTMENTS)
+    name = models.CharField(max_length=255, blank=False, null=False,)
+    middlename = models.CharField(max_length=255, blank=False, null=False,)
+    surname = models.CharField(max_length=255, blank=False, null=False,)
+    department = models.CharField(max_length=255, choices=DEPARTMENTS, null=False, blank=False)
     email = models.EmailField(max_length=256, unique=True)
     birthsday = models.DateField(blank=True, null=True)
     private_access = models.BooleanField(default=False) 

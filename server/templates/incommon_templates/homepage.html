@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block button_panel %}
+    {% include '_nav/paths.html' %}
+{% endblock %}
+
 {% block main %}
-    {{ user.email }}
+    <div class="text-home">
+        <h3>Обучающие материалы</h3> 
+        <h1>Используйте сайт для повышения квалификации сотрудников</h1>
+        {% if user.is_authenticated %}
+            {% if user.is_staff %}
+                <a href="{% url 'moder_home' %}"><button class="inp">Moderator</button></a>
+            {% else %}
+                <a href="{% url 'user_detail' %}"><button class="inp">Account</button></a>
+            {% endif %}
+        {% else %}
+            <a href="{% url 'login' %}"><button class="inp">Login</button></a>
+        {% endif %}
+    </div>
+    <img src="{% static 'images/homepage.png' %}" class="img-home" alt="">
 {% endblock main %}

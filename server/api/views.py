@@ -23,12 +23,9 @@ class UserAPIView(ListCreateAPIView):
             print('invalid recipier')
         return ans
 
-
 class UserDetailAPIView(RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
-
 
 class DocumentAPIView(ListCreateAPIView):
     queryset = Document.objects.all()

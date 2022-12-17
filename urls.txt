@@ -1,32 +1,31 @@
-/   home
-/admin/ admin:index
+/       incommonpanel.views.HomePageListView    home
 
-/api/v1/docs/   swagger-schema
-/api/v1/docs/redoc/ schema-redoc
-/api/v1/docs/catalog/   catalog_api
-/api/v1/docs/catalog/<int:pk>/  catalog_detail_api
-/api/v1/docs/documents/     document_api
-/api/v1/docs/documents/<int:pk>/    document_detail_api
-/api/v1/docs/user/      user_api
-/api/v1/docs/user/<int:pk>/     user_detail_api
+/api/v1/docs/
+/api/v1/docs/api.json/
+/api/v1/docs/catalog/
+/api/v1/docs/catalog/<int:pk>/
+/api/v1/docs/documents/
+/api/v1/docs/documents/<int:pk>/
+/api/v1/docs/redoc/
+/api/v1/docs/user/
+/api/v1/docs/user/<int:pk>/
 
-/authsystem/login/  login
-/authsystem/logout/ logout
-
-/authsystem/user/   user_detail
-/authsystem/user/update/    user_update
-
-/catalogs/  catalog_list
-/catalogs/<int:pk>/ catalog_detail
-/catalogs/<int:pk>/update/  catalog_update
-
-/documents/     document_list
-/documents/<int:pk>/        document_detail
-/documents/<int:pk>/update/     document_update
-
-/moder/catalog/creational/      moder_catalog_creational
-/moder/document/creational/     moder_document_creational
-/moder/register/        register
-
-/moder/user/<int:pk>/       moder_user_detail
-/moder/user/<int:pk>/update/        moder_user_update
+/authsystem/login/
+/authsystem/logout/
+/authsystem/user/
+/authsystem/user/password/reset/
+/authsystem/user/update/        authsystem.views.UserUpdateView user_update
+/catalogs/      incommonpanel.views.CatalogsListView    catalog_list
+/catalogs/<int:pk>/     incommonpanel.views.CatalogDetailView   catalog_detail
+/catalogs/<int:pk>/update/      incommonpanel.views.CatalogUpdateView   catalog_update
+/documents/     incommonpanel.views.DocumentsListView   document_list
+/documents/<int:pk>/    incommonpanel.views.DocumentDetailView  document_detail
+/documents/<int:pk>/update/     incommonpanel.views.DocumentUpdateView  document_update
+/media/<path>   django.views.static.serve
+/moder/ adminpanel.views.ModerHomeView  moder_home
+/moder/catalog/creational/      adminpanel.views.CatalogCreationalView  moder_catalog_creational
+/moder/document/creational/     adminpanel.views.DocumentCreationsView  moder_document_creational
+/moder/register/        adminpanel.views.user_register  register
+/moder/user/    adminpanel.views.ModerUserListView      moder_user_list
+/moder/user/<int:pk>/   adminpanel.views.ModeratorUserDetailView        moder_user_detail
+/moder/user/<int:pk>/update/    adminpanel.views.ModeratorUserUpdateView        moder_user_update

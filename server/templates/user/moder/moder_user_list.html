@@ -2,11 +2,17 @@
 {% load static %}
 
 {% block main %}
+<center>
+    {% if user.is_staff %}
     {% for user in users %}
-    <div>
+    <div class="user-list">
         <h3>{{ user.name }}</h3>
         <a href="{% url 'moder_user_detail' user.pk  %}"><button>User page</button></a>
         <a href="{% url 'moder_user_update' user.pk %}"><button>User editing page</button></a>
     </div>
     {% endfor %}
+    {% else %}
+    <h1>No way!</h1>
+{% endif %}
+</center>
 {% endblock main %}
