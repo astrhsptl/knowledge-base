@@ -10,7 +10,6 @@ from .forms import (
 	UserRegisterForm, UpdateUserForm,
 	DocumentCreationalForm, CatalogCreationalForm)
 
-from buisneslogic.send_email import mail_sending
 from buisneslogic.tasks import mail_sending_task
 
 class ModeratorUserDetailView(DetailView):

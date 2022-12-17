@@ -7,11 +7,22 @@ from .serializers import (
 from authsystem.models import User
 from incommonpanel.models import Document, Catalog
 
+from buisneslogic.tasks import mail_sending_task
+
 
 
 class UserAPIView(ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+    def post(self, request, *args, **kwargs):
+        ans = super().post(request, *args, **kwargs)
+        try:
+            mail_sending_task.delay(request.data['email'], request.data['password'])
+        except:
+            print('invalid recipier')
+        return ans
+
 
 class UserDetailAPIView(RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
