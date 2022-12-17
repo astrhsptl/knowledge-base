@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'authsystem.apps.AuthsystemConfig',
     'adminpanel.apps.AdminpanelConfig',
     'incommonpanel.apps.IncommonpanelConfig',
-
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
