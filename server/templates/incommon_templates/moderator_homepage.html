@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <h1>Hello, moderator)</h1>
+    {{ user.email }}
+    <a href="{% url 'moder_user_update' user.pk %}"><button>Correct ur profile</button></a>
+
+{% endblock main %}
+
+{% block moderator_panel %}
+<div>
+    <a href="{% url 'moder_catalog_creational' %}"><button>Catalog creational</button></a>
+    <a href="{% url 'moder_document_creational' %}"><button>Document creational</button></a>
+    <a href="{% url 'register' %}"><button>Register User</button></a>
+    <a href="{% url 'moder_user_list' %}"><button>User list</button></a>
+
+</div>
+{% endblock moderator_panel %}

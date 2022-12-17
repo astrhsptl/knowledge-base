@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <div>{{ user.email }}</div>
+    <div>{{ user.name }}</div>
+    <div>{{ user.private_access }}</div>
+    <a href="{% url 'moder_user_update' user.pk %}"><button>Correct profile</button></a>
+{% endblock main %}

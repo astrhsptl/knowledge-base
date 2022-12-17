@@ -12,6 +12,7 @@
 
 /authsystem/login/  login
 /authsystem/logout/ logout
+
 /authsystem/user/   user_detail
 /authsystem/user/update/    user_update
 
@@ -26,5 +27,6 @@
 /moder/catalog/creational/      moder_catalog_creational
 /moder/document/creational/     moder_document_creational
 /moder/register/        register
+
 /moder/user/<int:pk>/       moder_user_detail
 /moder/user/<int:pk>/update/        moder_user_update

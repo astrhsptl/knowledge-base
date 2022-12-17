@@ -9,6 +9,7 @@ def mail_sending(recipient, password):
     msg = f'''some test {password}'''
 
 
+    
     smtpobj.login(sender, senders_pass)
 
     smtpobj.sendmail(sender, recipient, str(msg))

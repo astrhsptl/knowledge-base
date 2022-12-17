@@ -56,4 +56,5 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.email
 
     def get_absolute_url(self,):
-        return reverse_lazy('user_detail', kwargs={'pk': self.pk})
+        return reverse_lazy('moder_user_detail', kwargs={'pk': self.pk})
+        

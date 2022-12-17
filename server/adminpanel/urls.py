@@ -6,10 +6,14 @@ from .views import (
 
     DocumentCreationsView, CatalogCreationalView,
 
-    user_register,
+    user_register, ModerHomeView, ModerUserListView
     )
 
 urlpatterns = [
+    path('', ModerHomeView.as_view(), name='moder_home'),
+
+    path('user/', ModerUserListView.as_view(), name='moder_user_list'),
+
     path('user/<int:pk>/', ModeratorUserDetailView.as_view(), name='moder_user_detail'),
     path('user/<int:pk>/update/', ModeratorUserUpdateView.as_view(), name='moder_user_update'),
 

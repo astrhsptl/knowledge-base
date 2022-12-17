@@ -31,15 +31,21 @@ class UserRegisterForm(UserCreationForm):
 		return user
 
 class DocumentCreationalForm(forms.ModelForm):
-	title = forms.CharField(required=True)
+	title = forms.CharField(required=True, min_length=7, max_length=30)
 	file = forms.FileField(required=True,)
 
 	class Meta:
 		model = Document
 		fields = ['title', 'file', 'private_access', 'catalog']
 
+	def clean(self):
+		cleaned_data = super().clean()
+		subject = cleaned_data.get("file")
+		if subject.size > 1024*1024:
+			self.add_error('file', "Very big file.")
+
 class CatalogCreationalForm(forms.ModelForm):
-	title = forms.CharField(required=True)
+	title = forms.CharField(required=True, min_length=5, max_length=20)
 
 	class Meta:
 		model = Catalog

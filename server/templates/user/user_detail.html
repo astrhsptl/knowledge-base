@@ -2,13 +2,8 @@
 {% load static %}
 
 {% block main %}
-    {% if user.is_staff %}
-        <ol>
-            <li>{{ user.email }}</li>
-            <li>{{ user.name }}</li>
-            <li>{{ user.private_access }}</li>
-        </ol>
-    {% else %}
-        <h1>{{ user.name }}</h1>
-	{% endif %}
+    <div>{{ user.email }}</div>
+    <div>{{ user.name }}</div>
+    <div>{{ user.private_access }}</div>
+    <a href="{% url 'user_update' %}"><button>Correct ur profile</button></a>
 {% endblock main %}

@@ -7,7 +7,24 @@
     <title>{{ title }}</title>
 </head>
 <body>
+{% block button_panel %}
+<div>
+    <a href="{% url 'home' %}"><button>Home</button></a>
+    <a href="{% url 'catalog_list' %}"><button>Catalogs</button></a>
+    <a href="{% url 'document_list' %}"><button>Documents</button></a>
+    <a href="{% url 'user_detail' %}"><button>Account</button></a>
+
+    {% if user.is_staff %}
+        <a href="{% url 'moder_home' %}"><button>Moderator</button></a>
+    {% endif %}
+</div>
+{% endblock %}
+
 {% block main %}
 {% endblock %}
+
+{% block moderator_panel %}
+
+{% endblock moderator_panel %}
 </body>
 </html>

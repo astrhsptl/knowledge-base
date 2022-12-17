@@ -2,10 +2,16 @@
 {% load static %}
 
 {% block main %}
-{{ catalog.title }}
-<ol>
-    {% for doc in documents %}
-        <a href="{{ doc.get_absolute_url }}"><li>{{ doc.title }}</li></a>
-    {% endfor %}
-</ol>
+    {{ catalog.title }}
+    <ol>
+        {% for doc in documents %}
+            <a href="{{ doc.get_absolute_url }}"><li>{{ doc.title }}</li></a>
+                {% if user.is_staff %}
+                    <a href="{% url 'document_update' doc.pk %}"><button>Correct Document</button></a>
+                {% endif %}
+            {% endfor %}
+    </ol>
+    {% if user.is_staff %}
+        <a href="{% url 'catalog_update' catalog.pk %}"><button>Correct</button></a>
+    {% endif %}
 {% endblock main %}
