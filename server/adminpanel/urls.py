@@ -14,7 +14,7 @@ urlpatterns = [
     path('user/<int:pk>/update/', ModeratorUserUpdateView.as_view(), name='moder_user_update'),
 
     path('document/creational/', DocumentCreationsView.as_view(), name='moder_document_creational'),
-    path('catalog/creational/', CatalogCreationalView.as_view(), name='moder_document_creational'),
+    path('catalog/creational/', CatalogCreationalView.as_view(), name='moder_catalog_creational'),
 
     path('register/', user_register, name='register'),
 ]

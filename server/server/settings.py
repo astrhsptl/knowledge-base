@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # second part
     'corsheaders',
+    'django_extensions',
     'drf_yasg',
     'whitenoise',
     'rest_framework',

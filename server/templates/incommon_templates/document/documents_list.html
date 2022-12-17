@@ -4,7 +4,7 @@
 {% block main %}
 <ol>
     {% for document in documents %}
-        <li>{{ document.file }}</li>
+        <a href="{{ document.get_absolute_url }}"><li>{{ document.title }}</li></a>
     {% endfor %}
 </ol>
 {% endblock main %}
