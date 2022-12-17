@@ -1,11 +1,15 @@
 # from django.contrib import messages
-from django.shortcuts import  render, redirect
-from django.views.generic import UpdateView, DetailView
+import os
 from django.contrib.auth import login
+from django.shortcuts import  render, redirect
+from django.views.generic import UpdateView, DetailView, CreateView
 
+from server.settings import MEDIA_ROOT
 from authsystem.models import User
+from incommonpanel.models import Document, Catalog
 from .forms import (
-	UserRegisterForm, UpdateUserForm)
+	UserRegisterForm, UpdateUserForm,
+	DocumentCreationalForm, CatalogCreationalForm)
 # Create your views here.
 
 class ModeratorUserDetailView(DetailView):
@@ -23,6 +27,18 @@ class ModeratorUserUpdateView(UpdateView):
 		context = super().get_context_data(**kwargs)
 		print(context)
 		return context
+
+class DocumentCreationsView(CreateView):
+	model = Document
+	form_class = DocumentCreationalForm
+	context_object_name = 'form'
+	template_name = 'incommon_templates/document/document_create.html'
+
+class CatalogCreationalView(CreateView):
+	model = Catalog
+	form_class = CatalogCreationalForm
+	context_object_name = 'form'
+	template_name = 'incommon_templates/catalog/catalog_create.html'
 
 def user_register(request):
 	if request.method == "POST":

@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 from authsystem.models import User
+from incommonpanel.models import Document, Catalog
 
 
 ###		Custom Inputs
@@ -22,6 +23,22 @@ class UserRegisterForm(UserCreationForm):
 		if commit:
 			user.save()
 		return user
+
+class DocumentCreationalForm(forms.ModelForm):
+	title = forms.CharField(required=True)
+	file = forms.FileField(required=True,)
+
+	class Meta:
+		model = Document
+		fields = ['title', 'file', 'private_access', 'catalog']
+
+class CatalogCreationalForm(forms.ModelForm):
+	title = forms.CharField(required=True)
+
+	class Meta:
+		model = Catalog
+		fields = ['title',]
+
 
 
 class UpdateUserForm(forms.ModelForm):
