@@ -1,4 +1,4 @@
-/       incommonpanel.views.HomePageListView    home
+/
 
 /api/v1/docs/
 /api/v1/docs/api.json/
@@ -14,18 +14,22 @@
 /authsystem/logout/
 /authsystem/user/
 /authsystem/user/password/reset/
-/authsystem/user/update/        authsystem.views.UserUpdateView user_update
-/catalogs/      incommonpanel.views.CatalogsListView    catalog_list
-/catalogs/<int:pk>/     incommonpanel.views.CatalogDetailView   catalog_detail
-/catalogs/<int:pk>/update/      incommonpanel.views.CatalogUpdateView   catalog_update
-/documents/     incommonpanel.views.DocumentsListView   document_list
-/documents/<int:pk>/    incommonpanel.views.DocumentDetailView  document_detail
-/documents/<int:pk>/update/     incommonpanel.views.DocumentUpdateView  document_update
-/media/<path>   django.views.static.serve
-/moder/ adminpanel.views.ModerHomeView  moder_home
-/moder/catalog/creational/      adminpanel.views.CatalogCreationalView  moder_catalog_creational
-/moder/document/creational/     adminpanel.views.DocumentCreationsView  moder_document_creational
-/moder/register/        adminpanel.views.user_register  register
-/moder/user/    adminpanel.views.ModerUserListView      moder_user_list
-/moder/user/<int:pk>/   adminpanel.views.ModeratorUserDetailView        moder_user_detail
-/moder/user/<int:pk>/update/    adminpanel.views.ModeratorUserUpdateView        moder_user_update
+/authsystem/user/update/
+
+/catalogs/
+/catalogs/<int:pk>/
+/catalogs/<int:pk>/update/
+
+/documents/
+/documents/<int:pk>/
+/documents/<int:pk>/update/
+
+/media/<path>
+
+/moder/
+/moder/catalog/creational/
+/moder/document/creational/
+/moder/register/
+/moder/user/
+/moder/user/<int:pk>/
+/moder/user/<int:pk>/update/
